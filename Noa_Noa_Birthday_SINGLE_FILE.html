@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>For Noa Noa ♡</title>
+<meta name="theme-color" content="#f7dce7">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&family=Sacramento&display=swap');
+*{box-sizing:border-box} body{margin:0;background:#fbf7f7;color:#42383b;font-family:'DM Sans',sans-serif}
+button,input{font:inherit}.screen{min-height:100svh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{width:min(430px,100%);background:#fff;border:1px solid #f0e3e7;border-radius:28px;box-shadow:0 18px 60px #6d536018;padding:30px}
+.cover{text-align:center}.tiny{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#a68b94}.script{font-family:Sacramento,cursive;font-size:58px;line-height:1;color:#9a6276;margin:12px 0}
+h1,h2{font-family:'Playfair Display',serif;font-weight:500}h1{font-size:30px;margin:8px 0}h2{font-size:26px}
+p{line-height:1.75;color:#74666b}.heart{font-size:42px;margin:10px}.btn{border:0;border-radius:999px;padding:14px 20px;background:#9a6276;color:white;font-weight:600;cursor:pointer;box-shadow:0 8px 22px #9a627630}.btn.secondary{background:#f6e9ed;color:#754f60;box-shadow:none}
+.pin{display:flex;gap:8px;justify-content:center;margin:18px 0}.pin input{width:45px;height:52px;text-align:center;border:1px solid #e7d9de;border-radius:12px;font-size:20px;outline:none}
+#error{height:18px;color:#b45e73;font-size:13px}.hidden{display:none!important}
+#app{display:none}.nav{position:sticky;top:0;z-index:4;background:#fbf7f7dd;backdrop-filter:blur(12px);padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+.nav b{font-family:'Playfair Display',serif}.music{font-size:12px;border:1px solid #eadbe0;border-radius:999px;padding:8px 12px;background:white}
+main{max-width:760px;margin:auto;padding:10px 18px 60px}.hero{text-align:center;padding:42px 0 24px}.hero .script{font-size:70px}.subtitle{max-width:560px;margin:0 auto}
+.section{margin:22px 0;padding:24px;background:white;border:1px solid #f0e3e7;border-radius:26px;box-shadow:0 12px 40px #6d53600d}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:18px;background:#f4eaed}
+.wishes{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.wish{padding:18px;border-radius:18px;background:#fcf5f7;min-height:120px}.wish b{display:block;margin-bottom:8px;color:#8d5c70}.letter{font-family:'Playfair Display',serif;font-size:17px;line-height:2;color:#594b50;white-space:pre-line}
+.envelopes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.env{border:0;border-radius:18px;background:#f5e5ea;padding:22px 8px;cursor:pointer;color:#765263}.env span{font-size:28px;display:block;margin-bottom:8px}
+.cake{text-align:center}.cake .emoji{font-size:88px;cursor:pointer;display:inline-block;transition:.25s}.cake .emoji:active{transform:scale(.9)}.note{font-size:13px;color:#927f86}
+.reveal{padding:18px;background:#fcf4f7;border-radius:18px;margin-top:12px}
+.count{font-family:'Playfair Display',serif;font-size:28px;text-align:center;color:#8f5e71}
+footer{text-align:center;color:#a18f95;font-size:12px;margin-top:35px}
+.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:20}.piece{position:absolute;top:-20px;width:8px;height:12px;animation:fall 2.7s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@media(max-width:430px){.card{padding:24px}.wishes{grid-template-columns:1fr 1fr}.envelopes{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div id="lock" class="screen">
+  <div class="card cover">
+    <div class="tiny">a little surprise for</div>
+    <div class="script">Noa Noa ♡</div>
+    <div class="heart">💌</div>
+    <h1>Someone made something for you.</h1>
+    <p>There are a few little things waiting inside. Enter the secret code to open them.</p>
+    <div class="pin">
+      <input maxlength="1" inputmode="numeric" autofocus>
+      <input maxlength="1" inputmode="numeric">
+      <input maxlength="1" inputmode="numeric">
+      <input maxlength="1" inputmode="numeric">
+    </div>
+    <div id="error"></div>
+    <button class="btn" onclick="unlock()">Open my surprise ♡</button>
+    <p class="note">Hint: the month + day you became “us” 💗</p>
+  </div>
+</div>
+
+<div id="app">
+  <div class="nav">
+    <b>For Noa Noa ♡</b>
+    <button class="music" onclick="toggleMusic()">♫ music</button>
+  </div>
+  <main>
+    <section class="hero">
+      <div class="tiny">happy birthday, my love</div>
+      <div class="script">Noa Noa</div>
+      <p class="subtitle">I wanted to give you something you could open, explore and keep — a tiny little corner of the internet made just for you.</p>
+      <button class="btn" onclick="celebrate()">make a wish 🎂</button>
+    </section>
+
+    <section class="section">
+      <div class="tiny">our little memories</div>
+      <h2>Four moments I love ♡</h2>
+      <div class="gallery">
+        <img src="photo1.jpg" alt="Memory 1">
+        <img src="photo2.jpg" alt="Memory 2">
+        <img src="photo3.jpg" alt="Memory 3">
+        <img src="photo4.jpg" alt="Memory 4">
+      </div>
+      <p class="note">Replace the four photos with yours before sharing.</p>
+    </section>
+
+    <section class="section">
+      <div class="tiny">six little things</div>
+      <h2>Birthday wishes for you</h2>
+      <div class="wishes">
+        <div class="wish"><b>01 ♡</b>May this year bring you everything you've been quietly wishing for.</div>
+        <div class="wish"><b>02 ♡</b>May you always remember how loved you are.</div>
+        <div class="wish"><b>03 ♡</b>More laughter, more adventures, more memories together.</div>
+        <div class="wish"><b>04 ♡</b>I hope you keep becoming the person you dream of being.</div>
+        <div class="wish"><b>05 ♡</b>May your happiest days still be ahead of you.</div>
+        <div class="wish"><b>06 ♡</b>And selfishly… I hope I get to be there for many of them.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="tiny">open when you're ready</div>
+      <h2>A letter for you</h2>
+      <div class="letter">My love,
+
+Happy birthday. ♡
+
+I wanted to make you something a little different this year — something you could actually open and explore, with little pieces of us hidden inside.
+
+Thank you for being you, for the moments we've shared, and for all the memories still waiting for us.
+
+I hope today reminds you just how special you are to me. I am so lucky to have you, and I hope this new year of your life is beautiful.
+
+Happy birthday, my love. I love you. ♡
+
+— Nabylah</div>
+    </section>
+
+    <section class="section">
+      <div class="tiny">six envelopes</div>
+      <h2>Open one whenever you need me</h2>
+      <div class="envelopes">
+        <button class="env" onclick="reveal(this,'Remember that I am always cheering for you. ♡')"><span>💌</span>when you're sad</button>
+        <button class="env" onclick="reveal(this,'Come here. You deserve the biggest hug. 🫂')"><span>🫂</span>when you need a hug</button>
+        <button class="env" onclick="reveal(this,'You make ordinary moments feel special. ♡')"><span>🌷</span>when you miss me</button>
+        <button class="env" onclick="reveal(this,'I believe in you more than you know. ✨')"><span>✨</span>when you doubt</button>
+        <button class="env" onclick="reveal(this,'Go be amazing. I will be proud of you either way. ♡')"><span>🎀</span>before something big</button>
+        <button class="env" onclick="reveal(this,'Happy birthday again, birthday boy. Now come collect your kiss. 😭💋')"><span>💋</span>just because</button>
+      </div>
+    </section>
+
+    <section class="section cake">
+      <div class="tiny">one more thing</div>
+      <h2>Make a birthday wish</h2>
+      <div class="emoji" onclick="celebrate()">🎂</div>
+      <p class="note">Tap the cake.</p>
+    </section>
+
+    <section class="section">
+      <div class="tiny">our song</div>
+      <h2>A song that reminds me of you ♫</h2>
+      <p id="songText">Add your Spotify song link here.</p>
+      <a class="btn secondary" href="#" id="songLink" target="_blank" rel="noopener">Open our song ♫</a>
+    </section>
+
+    <footer>made with love · Nabylah ♡</footer>
+  </main>
+</div>
+
+<div class="confetti" id="confetti"></div>
+
+<script>
+const SECRET="MMDD"; // Replace with the 4-digit month/day, e.g. 0815
+const SONG_URL="https://open.spotify.com/"; // Replace with your song URL
+
+function unlock(){
+  const code=[...document.querySelectorAll('.pin input')].map(x=>x.value).join('');
+  if(code===SECRET){document.getElementById('lock').style.display='none';document.getElementById('app').style.display='block';document.getElementById('songLink').href=SONG_URL;celebrate();}
+  else document.getElementById('error').textContent="Almost… try the month + day 💗";
+}
+document.querySelectorAll('.pin input').forEach((x,i,a)=>x.addEventListener('input',()=>{if(x.value&&i<a.length-1)a[i+1].focus();}));
+function celebrate(){
+  const box=document.getElementById('confetti');box.innerHTML='';
+  for(let i=0;i<70;i++){let p=document.createElement('i');p.className='piece';p.style.left=Math.random()*100+'%';p.style.animationDelay=Math.random()*.6+'s';p.style.background=['#d68ca7','#e9b8c8','#c99aaa','#f0d4dc','#9a6276'][i%5];box.appendChild(p);}
+  setTimeout(()=>box.innerHTML='',3500);
+}
+function reveal(btn,msg){
+  btn.innerHTML='<span>💗</span>'+msg;
+}
+function toggleMusic(){ alert('Add your preferred music embed/link in the SONG_URL setting.'); }
+</script>
+</body>
+</html>
